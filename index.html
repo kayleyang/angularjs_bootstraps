@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="MyModule">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper" ng-controller="SetTheme">
+	<form ng-controller="FormControl">
+		<div class="panel panel-{{theme}}">
+			<div class="panel-heading">
+				<div class="panel-title">Model Define</div>
+			</div>
+			<div class="panel-body">
+				<div class="input-group">
+			       <span class="input-group-addon">Name:</span>
+			       <input type="text" class="form-control" placeholder="Name" ng-model="userInfo.name">
+			    </div>
+			</div>
+		</div>
+		<div class="panel panel-{{theme}}">
+			<div class="panel-heading">
+				<div class="panel-title">Properties</div>
+			</div>
+			<div class="panel-body">
+				<div class="line1">
+					<div class="row">
+						<div class="col-md-1 centerDiv">
+							<a class="glyphicon glyphicon-minus minus" ng-click="listPane.removePanel()"></a>
+						</div>
+						<div class="col-md-11">
+							<div class="mainContent" ng-repeat="panel in listPane.panels">
+								<div class="form-group">
+									<div class="input-group">
+								       <span class="input-group-addon">Property Name{{$index + 1}}:</span>
+								       <input type="text" class="form-control" placeholder="Property Name" ng-model="panel.pName" id="panel{{$index + 1}}" name="panel{{$index + 1}}">
+								    </div>
+								    <br>
+								    <div class="input-group">
+								       <span class="input-group-addon">Property Type{{$index + 1}}:</span>
+								       <input type="number" class="form-control" ng-model="panel.pType" id="panel{{$index + 1}}" name="panel{{$index + 1}}">
+								    </div>
+								    <br>
+								    <div class="input-group">
+								       <span class="input-group-addon">RelationShip Schema{{$index + 1}}:</span>
+								       <input type="number" class="form-control" ng-model="panel.schema" id="panel{{$index + 1}}" name="panel{{$index + 1}}">
+								    </div>
+								    <br>
+								    <div class="input-group">
+								       <span class="input-group-addon">RelationShip Field{{$index + 1}}:</span>
+								       <input type="number" class="form-control" ng-model="panel.filed" id="panel{{$index + 1}}" name="panel{{$index + 1}}">
+								    </div>
+								    <br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="line2">
+					<div class="row">
+						<div class="col-md-1 centerDiv">
+							<a class="glyphicon glyphicon-plus plus" ng-click="listPane.addPanel()"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrapperThree">
+			<button class="btn btn-{{theme}}" ng-click="listPane.combinePanels()">Submit</button>
+		</div>
+	</form>
+	<div>
+		<button class="btn btn-default" ng-click="setDefault()">默认主题</button>
+		<button class="btn btn-primary" ng-click="setPrimary()">primary主题</button>
+		<button class="btn btn-success" ng-click="setSuccess()">success主题</button>
+		<button class="btn btn-info" ng-click="setInfo()">info主题</button>
+	</div>
+</div>
+<script src="js/jquery-2.2.1.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<!-- <script src="js/script.js"></script> -->
+
+</body>
+</html>
